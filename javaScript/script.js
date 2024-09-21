@@ -6,7 +6,6 @@ function inputNumber(id) {
 function setValue(id) {
   document.getElementById(id);
 }
-
 const calculate = document
   .getElementById("calculate")
   .addEventListener("click", function () {
@@ -43,7 +42,6 @@ const calculate_savings = document
     const balance = income - totalExpence;
     const saving_Calculation = (balance * savings) / 100;
     const remaining = balance - saving_Calculation;
-
     document.getElementById(
       "savings-amount"
     ).innerText = `${saving_Calculation.toFixed(2)}`;
@@ -54,8 +52,23 @@ const calculate_savings = document
 
 //   history part starts here
 const history_tab = document.getElementById("history-tab");
-
 history_tab.addEventListener("click", function () {
+  history_tab.classList.add(
+    "text-white",
+    "bg-gradient-to-r",
+    "from-blue-500",
+    "to-purple-600"
+  );
+  document
+    .getElementById("assistant-tab")
+    .classList.remove(
+      "text-white",
+      "bg-gradient-to-r",
+      "from-blue-500",
+      "to-purple-600"
+    );
+  document.getElementById("assistant-tab").classList.add("text-grey-500");
+
   document.getElementById("expense-form").classList.add("hidden");
   document.getElementById("results").classList.remove("hidden");
 });
